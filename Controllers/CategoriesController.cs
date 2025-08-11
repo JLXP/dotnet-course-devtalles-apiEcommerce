@@ -1,6 +1,8 @@
+using ApiEcommerce.Constants;
 using ApiEcommerce.Models.Dtos;
 using ApiEcommerce.Repository.IRepository;
 using AutoMapper;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,6 +10,7 @@ namespace ApiEcommerce.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [EnableCors(PolicyNames.AllowSpecificOrigin)]
     public class CategoriesController : ControllerBase
     {
 
@@ -39,6 +42,7 @@ namespace ApiEcommerce.Controllers
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
         [ProducesResponseType(typeof(List<CategoryDto>), StatusCodes.Status200OK)]
+        //[EnableCors("AllowSpecificOrigin")]
         public IActionResult GetCategories()
         {
 
@@ -189,7 +193,7 @@ namespace ApiEcommerce.Controllers
                 return NotFound($"La categoria con el Id {id} no existe");
             }
 
-             if (!_categoryRepository.DeleteCategory(category))
+            if (!_categoryRepository.DeleteCategory(category))
             {
                 ModelState.AddModelError("CustomError", $"Algo salio mal al eliminar el registro {category.Name}");
                 return StatusCode(500, ModelState);
