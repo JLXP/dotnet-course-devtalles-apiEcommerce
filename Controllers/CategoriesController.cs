@@ -2,6 +2,7 @@ using ApiEcommerce.Constants;
 using ApiEcommerce.Models.Dtos;
 using ApiEcommerce.Repository.IRepository;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -10,7 +11,8 @@ namespace ApiEcommerce.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [EnableCors(PolicyNames.AllowSpecificOrigin)]
+    [Authorize(Roles = "Admin")]
+    //[EnableCors(PolicyNames.AllowSpecificOrigin)]
     public class CategoriesController : ControllerBase
     {
 
@@ -38,7 +40,7 @@ namespace ApiEcommerce.Controllers
 
 
         //IActionResult: es el tipo de resultado que se devolverá (puede ser un OK, error, etc.).
-
+        [AllowAnonymous]
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
         [ProducesResponseType(typeof(List<CategoryDto>), StatusCodes.Status200OK)]
@@ -71,7 +73,7 @@ namespace ApiEcommerce.Controllers
             return Ok(categoriesDto);
         }
 
-
+        [AllowAnonymous]
         [HttpGet("{id:int}", Name = "GetCategory")]
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -159,7 +161,7 @@ namespace ApiEcommerce.Controllers
             var category = _mapper.Map<Category>(updateCategoryDto);
             category.Id = id;
 
-            if (!_categoryRepository.CreateCategory(category))
+            if (!_categoryRepository.UpdateCategory(category))
             {
                 ModelState.AddModelError("CustomError", $"Algo salio mal al actualizar el registro {category.Name}");
                 return StatusCode(500, ModelState);

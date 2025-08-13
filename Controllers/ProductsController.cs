@@ -2,13 +2,16 @@ using ApiEcommerce.Models;
 using ApiEcommerce.Models.Dtos;
 using ApiEcommerce.Repository.IRepository;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ApiEcommerce.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(Roles = "Admin")]
     public class ProductsController : ControllerBase
     {
 
@@ -23,6 +26,7 @@ namespace ApiEcommerce.Controllers
             _categoryRepository = categoryRepository;
         }
 
+        [AllowAnonymous]
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
         [ProducesResponseType(typeof(List<ProductDto>), StatusCodes.Status200OK)]
@@ -35,6 +39,7 @@ namespace ApiEcommerce.Controllers
             return Ok(productsDto);
         }
 
+        [AllowAnonymous]
         [HttpGet("{productId:int}", Name = "GetProduct")]
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
         [ProducesResponseType(typeof(List<ProductDto>), StatusCodes.Status200OK)]
@@ -218,7 +223,7 @@ namespace ApiEcommerce.Controllers
             {
                 return NotFound($"El producto con el Id {productId} no existe");
             }
-            
+
 
             if (!_productRepository.DeleteProduct(product))
             {

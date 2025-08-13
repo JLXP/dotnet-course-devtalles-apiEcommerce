@@ -167,3 +167,7 @@
 /Users/javierleonardo/Desktop/CURSOS/DOTNET/ApiEcommerce/ApiEcommerce/obj/Debug/net8.0/ApiEcommerce.genruntimeconfig.cache
 /Users/javierleonardo/Desktop/CURSOS/DOTNET/ApiEcommerce/ApiEcommerce/obj/Debug/net8.0/ref/ApiEcommerce.dll
 /Users/javierleonardo/Desktop/CURSOS/DOTNET/ApiEcommerce/ApiEcommerce/bin/Debug/net8.0/AutoMapper.dll
+/Users/javierleonardo/Desktop/CURSOS/DOTNET/ApiEcommerce/ApiEcommerce/bin/Debug/net8.0/BCrypt.Net-Next.dll
+/Users/javierleonardo/Desktop/CURSOS/DOTNET/ApiEcommerce/ApiEcommerce/bin/Debug/net8.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+/Users/javierleonardo/Desktop/CURSOS/DOTNET/ApiEcommerce/ApiEcommerce/obj/Debug/net8.0/ApiEcommerce.sourcelink.json
+/Users/javierleonardo/Desktop/CURSOS/DOTNET/ApiEcommerce/ApiEcommerce/bin/Debug/net8.0/Api-Ecommerce.postman_collection.json
