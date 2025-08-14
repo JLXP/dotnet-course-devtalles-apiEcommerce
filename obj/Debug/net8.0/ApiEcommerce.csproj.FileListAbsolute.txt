@@ -175,3 +175,8 @@
 /Users/javierleonardo/Desktop/CURSOS/DOTNET/ApiEcommerce/ApiEcommerce/bin/Debug/net8.0/Asp.Versioning.Http.dll
 /Users/javierleonardo/Desktop/CURSOS/DOTNET/ApiEcommerce/ApiEcommerce/bin/Debug/net8.0/Asp.Versioning.Mvc.dll
 /Users/javierleonardo/Desktop/CURSOS/DOTNET/ApiEcommerce/ApiEcommerce/bin/Debug/net8.0/Asp.Versioning.Mvc.ApiExplorer.dll
+/Users/javierleonardo/Desktop/CURSOS/DOTNET/ApiEcommerce/ApiEcommerce/bin/Debug/net8.0/Microsoft.AspNetCore.Cryptography.Internal.dll
+/Users/javierleonardo/Desktop/CURSOS/DOTNET/ApiEcommerce/ApiEcommerce/bin/Debug/net8.0/Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+/Users/javierleonardo/Desktop/CURSOS/DOTNET/ApiEcommerce/ApiEcommerce/bin/Debug/net8.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+/Users/javierleonardo/Desktop/CURSOS/DOTNET/ApiEcommerce/ApiEcommerce/bin/Debug/net8.0/Microsoft.Extensions.Identity.Core.dll
+/Users/javierleonardo/Desktop/CURSOS/DOTNET/ApiEcommerce/ApiEcommerce/bin/Debug/net8.0/Microsoft.Extensions.Identity.Stores.dll

@@ -1,9 +1,11 @@
 using System.Text;
 using ApiEcommerce.Constants;
+using ApiEcommerce.Models;
 using ApiEcommerce.Repository;
 using ApiEcommerce.Repository.IRepository;
 using Asp.Versioning;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -25,6 +27,13 @@ builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddAutoMapper(cfg => { cfg.AddMaps(typeof(Program).Assembly); });
+
+//Configuracion de identity
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
+.AddEntityFrameworkStores<ApplicationDbContext>()
+.AddDefaultTokenProviders();
+
+
 var secretkey = builder.Configuration.GetValue<string>("ApiSettings:SecretKey");
 if (String.IsNullOrEmpty(secretkey))
 {
@@ -67,7 +76,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(
     options =>
   {
-    
+
     options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
       Description = "Nuestra API utiliza la Autenticación JWT usando el esquema Bearer. \n\r\n\r" +
@@ -133,7 +142,7 @@ builder.Services.AddSwaggerGen(
 
 
 
-  
+
 );
 
 

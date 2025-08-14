@@ -38,10 +38,10 @@ namespace ApiEcommerce.Controllers
             return Ok(usersDto);
         }
 
-        [HttpGet("{id:int}", Name = "GetUser")]
+        [HttpGet("{id}", Name = "GetUser")]
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
         [ProducesResponseType(typeof(List<User>), StatusCodes.Status200OK)]
-        public IActionResult GetUser(int id)
+        public IActionResult GetUser(string id)
         {
 
             var user = _userRepository.GetUser(id);
