@@ -77,6 +77,35 @@ public class ProductRepository : IProductRepository
         return _db.Products.Include(p => p.Category).Where(p => p.CategoryId == categoryId).OrderBy(p => p.Name).ToList();
     }
 
+    public ICollection<Product> GetProductsInPages(int pageNumber, int pageSize)
+    {
+        return _db.Products.OrderBy(p => p.ProductId)
+       .Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList();
+
+        /*
+
+       .Skip((pageNumber - 1) * pageSize)
+        Esto es: “sáltate” (no muestres) ciertos productos antes de empezar a mostrar la página actual.
+
+        Ejemplo:
+
+        Si quieres la página 3 y cada página tiene 10 productos → (3 - 1) * 10 = 20
+        Entonces se saltará los primeros 20 productos y comenzará a mostrar desde el número 21.
+
+        .Take(pageSize)
+        Aquí se dice: “toma solo la cantidad de productos que cabe en una página”.
+
+        Si pageSize = 10 → toma solo 10 productos.
+
+
+        */
+    }
+
+    public int GetTotalProducts()
+    {
+        return _db.Products.Count();
+    }
+
     public bool ProductExists(int id)
     {
         if (id <= 0)

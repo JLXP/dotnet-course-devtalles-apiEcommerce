@@ -51,13 +51,17 @@
               "target": "Package",
               "version": "[8.1.0, )"
             },
-            "AutoMapper": {
-              "target": "Package",
-              "version": "[15.0.1, )"
-            },
             "BCrypt.Net-Next": {
               "target": "Package",
               "version": "[4.0.3, )"
+            },
+            "Mapster": {
+              "target": "Package",
+              "version": "[7.4.0, )"
+            },
+            "Mapster.DependencyInjection": {
+              "target": "Package",
+              "version": "[1.0.0, )"
             },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",

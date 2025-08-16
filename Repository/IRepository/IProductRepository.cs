@@ -55,6 +55,8 @@ public interface IProductRepository
     //        → Devuelve un bool indicando
     //          si los cambios se guardaron correctamente.
     ICollection<Product> GetProducts();
+    ICollection<Product> GetProductsInPages(int pageNumber, int pageSize);
+    int GetTotalProducts();
     ICollection<Product> GetProductsForCategory(int categoryId);
     ICollection<Product> SearchProducts(string searchTerm);
     Product? GetProduct(int id);
